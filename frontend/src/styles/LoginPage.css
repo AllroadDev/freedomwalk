@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+  }
+  
+  .login-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+  }
+  
+  .login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-weight: 300;
+    color: #34495e;
+  }
+  
+  .login-form {
+    width: 100%;
+  }
+  
+  .login-input-group {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #34495e;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box; 
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .forgot-password a {
+    color: #2980b9;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background: #2980b9;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box; 
+  }
+  
+  .login-btn:hover {
+    background: #3498db;
+  }
+  
+  .separator {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .google-btn {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; 
+    box-sizing: border-box; 
+  }
+  
+  .google-btn:hover {
+    background-color: #f8f8f8;
+    border-color: #ccc;
+  }
+  
+  .google-btn:focus {
+    outline: none;
+  }
+  
+  .google-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
