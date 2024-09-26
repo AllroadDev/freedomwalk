@@ -1,39 +1,57 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import LoginPage from './components/LoginPage';
-import RegisterPage from './components/RegisterPage';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
+import "./App.css";
+import AppBar from "./components/AppBar";
+import MapPage from "./components/MapPage";
+import ForgotPassPage from "./components/ForgotPassPage";
+import AccountConfirmation from "./components/AccountConfirmation";
+import SurveyPage from "./components/FormPageOne";
 
 const App = () => {
-  return (
-    <Router>
-      <div className="app-container">
-        <header className="app-bar">
-          <div className="app-title">
-          <Link to="/" className="nav-link">FreedomWalk</Link></div>
-          <nav className="app-nav">
-            <Link to="/login" className="nav-link">Login</Link>
-            <Link to="/register" className="nav-link">Register</Link>
-          </nav>
-        </header>
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
-  );
-};
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-const HomePage = () => {
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
-    <div className="home-page">
-      <h1>Welcome to FreedomWalk!</h1>
-      <p>Please login or register to continue.</p>
-    </div>
+    <ChakraProvider>
+      <Router>
+        <AppBar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <div className="app-container">
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<MapPage />} />
+              <Route
+                path="/login"
+                element={<LoginPage onLogin={handleLogin} />}
+              />
+              <Route path="/forgot-password" element={<ForgotPassPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route
+                path="/account-confirmation"
+                element={<AccountConfirmation />}
+              />
+              <Route
+                path="/form-page-one"
+                element={<SurveyPage onLogin={handleLogin} />}
+              />
+              <Route
+                path="/map"
+                element={<MapPage isLoggedIn={isLoggedIn} />}
+              />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </ChakraProvider>
   );
 };
 
